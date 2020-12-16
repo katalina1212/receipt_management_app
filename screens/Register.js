@@ -9,6 +9,7 @@ import { registerUser } from "../redux/action/RegisterAction"
 class Register extends React.Component{
   state={email:"", password:"", password2:""}
 render(){
+  console.log(this.props);
   if (this.props.user.fetched){
     this.props.navigation.goBack();
   }
