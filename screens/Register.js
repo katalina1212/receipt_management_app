@@ -8,11 +8,12 @@ import { registerUser } from "../redux/action/RegisterAction"
 
 class Register extends React.Component{
   state={email:"", password:"", password2:""}
-render(){
-  console.log(this.props);
-  if (this.props.user.fetched){
-    this.props.navigation.goBack();
+  componentDidUpdate(){
+    if (this.props.user.fetched){
+      this.props.navigation.goBack();
+    }
   }
+render(){
   return(
     <View style={styles.container}>
       <Text>Email</Text>
@@ -22,7 +23,6 @@ render(){
       <Text>Re-type password</Text>
       <TextInput onChangeText={(text)=>{this.setState({password2:text})}} style={styles.textInput} placeholder="Re-type your password" />
       <Button title="Register" onPress={() => this.props._registerUser(this.state.email, this.state.password)} />
-      <Text>{this.props.user.fetched.toString()}</Text>
       <StatusBar style="auto" />
     </View>
   );
