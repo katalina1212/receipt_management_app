@@ -20,9 +20,9 @@ render(){
     <Text>Email</Text>
     <TextInput onChangeText={(text)=>{this.setState({email:text})}} style={styles.textInput} placeholder="Please type your email" />
     <Text>Password</Text>
-    <TextInput onChangeText={(text)=>{this.setState({password:text})}} style={styles.textInput} placeholder="Please type your password" />
-    <Button title="Login" onPress={() => this.props._getToken(this.state.email, this.state.password)} />
-    <Button title="Register" onPress={() => this.props.navigation.navigate("RegisterScreen")} />
+    <TextInput onChangeText={(text)=>{this.setState({password:text})}} style={styles.textInput} secureTextEntry={true} placeholder="Please type your password" />
+    <Button title="Login" style={styles.button} onPress={() => this.props._getToken(this.state.email, this.state.password)} />
+    <Button title="Register" style={styles.button} onPress={() => this.props.navigation.navigate("RegisterScreen")} />
     <StatusBar style="auto" />
   </View>
 
@@ -40,7 +40,12 @@ const styles = StyleSheet.create({
   textInput: {
     borderColor:'grey',
     borderWidth: 1 ,
+    marginBottom: 5 , 
   },
+
+  button: {
+    marginBottom: 5 , 
+  }
 });
 
 const selector = (store) => {

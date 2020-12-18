@@ -2,7 +2,6 @@ import LoginScreen from '../screens/Login';
 import RegisterScreen from '../screens/Register';
 import HomeScreen from '../screens/Home';
 import SaveReceiptScreen from '../screens/SaveReceiptScreen';
-import TestScreen from '../screens/TestScreen';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
