@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button } from 'react-native';
+import {StyleSheet, Text, View, Button, Image } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { connect } from "react-redux";
 import { addReceipts, deleteReceipts } from "../redux/action/ReceiptsAction";
@@ -76,10 +76,11 @@ render(){
     }
 
 return(
-<View>
-      <TextInput onChangeText={(text)=>{this.setState({title:text})}} placeholder="Please type title" />
-      <TextInput onChangeText={(text)=>{this.setState({price:text})}} placeholder="Please type price" />
-      <TextInput onChangeText={(text)=>{this.setState({category:text})}} placeholder="Please type category" />
+<View style={styles.container}>
+<Image style={styles.image} source={{uri:"https://i.ibb.co/QmQ0h9T/N-vtelen-2.png"}} />
+      <TextInput style={styles.headerText} onChangeText={(text)=>{this.setState({title:text})}} placeholder="Please type title" />
+      <TextInput style={styles.headerText} onChangeText={(text)=>{this.setState({price:text + ""})}} placeholder="Please type price" />
+      <TextInput style={styles.headerText} onChangeText={(text)=>{this.setState({category:text})}} placeholder="Please type category" />
       <Button title="Save" style={styles.button} onPress={() => this.props._addReceipts(this.props.login.user.objectId, this.state.title, this.state.price, this.state.category)} />
       </View>)
 }
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      //justifyContent: 'center',
     },
   
     textInput: {
@@ -101,6 +102,17 @@ const styles = StyleSheet.create({
   
     button: {
       marginBottom: 5 , 
+    },
+
+    headerText:{
+      fontSize: 20 , 
+      marginBottom: 10,
+    },
+
+    image:{
+      height: 100 ,
+      width: 100,
+  
     }
   });
 
